@@ -11,13 +11,13 @@ class UserProfileDatasource {
           options: Options(headers: {'x-api-key': 'reqres-free-v1'}));
       if (response.statusCode == 200 || response.statusCode == 201) {
         final data = response.data['data'];
-        List<UserProfileModel> users = List<UserProfileModel>.from(
-            data.map((element) => UserProfileModel.fromJson(element)));
+        // List<UserProfileModel> users = List<UserProfileModel>.from(
+        //     data.map((element) => UserProfileModel.fromJson(element)));
 
-        // List<UserProfileModel> users = [];
-        // for (var element in data) {
-        //   users.add(UserProfileModel.fromJson(element));
-        // }
+        List<UserProfileModel> users = [];
+        for (var element in data) {
+          users.add(UserProfileModel.fromJson(element));
+        }
         return users;
       }
       throw Exception();

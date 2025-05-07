@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sanberapp66/config/custom/image/custom_box_image_network.dart';
+import 'package:sanberapp66/config/style/app_color.dart';
+import 'package:sanberapp66/datasource/auth/auth_local_datasource.dart';
 import 'package:sanberapp66/datasource/profile/user_profile_datasource.dart';
 import 'package:sanberapp66/model/user_profile_model.dart';
 
@@ -33,6 +35,17 @@ class _UserProfilePageState extends State<UserProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              AuthLocalDatasource.removeData();
+            },
+            icon: Icon(
+              Icons.login,
+              color: whiteColor,
+            ),
+          )
+        ],
         title: Text('User Page'),
       ),
       body: isLoading

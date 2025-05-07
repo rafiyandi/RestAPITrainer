@@ -3,10 +3,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:sanberapp66/config/custom/button/custom_primary_button.dart';
 import 'package:sanberapp66/datasource/auth/auth_datasource.dart';
+import 'package:sanberapp66/pages/auth/login/login_page.dart';
 import 'package:sanberapp66/pages/profile/user_profile_page.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class LoginPage extends StatelessWidget {
     final TextEditingController passwordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page'),
+        title: const Text('Register Page'),
       ),
       body: Center(
         child: Padding(
@@ -42,7 +43,7 @@ class LoginPage extends StatelessWidget {
                 title: 'Masuk',
                 onPressed: () {
                   AuthDatasource()
-                      .signInWithEmailAndPassword(
+                      .createUserWithEmailAndPassword(
                           email: emailController.text,
                           password: passwordController.text)
                       .then((value) {
@@ -50,7 +51,7 @@ class LoginPage extends StatelessWidget {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const UserProfilePage(),
+                            builder: (context) => const LoginPage(),
                           ),
                           (route) => false);
                     }
