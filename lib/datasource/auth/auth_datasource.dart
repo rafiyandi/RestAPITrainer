@@ -4,20 +4,20 @@ import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sanberapp66/config/navigation/navigation_service.dart';
+import 'package:sanberapp66/config/provider/endpoint.dart';
 import 'package:sanberapp66/config/style/app_color.dart';
 import 'package:sanberapp66/datasource/auth/auth_local_datasource.dart';
 
 class AuthDatasource {
   Dio dio = Dio();
-  static const host = 'https://reqres.in/api/users';
-  static const loginHost = 'https://reqres.in/api/login';
+
   final _auth = FirebaseAuth.instance;
 
   Future<String> login(
       {required String email, required String password}) async {
     try {
       final response = await dio.post(
-        loginHost,
+        '${Endpoint.host}/${Endpoint.login}',
         data: {'email': email, 'password': password},
         options: Options(
           headers: {'x-api-key': 'reqres-free-v1'},
