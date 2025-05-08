@@ -8,6 +8,7 @@ import 'package:sanberapp66/config/theme/theme_data.dart';
 import 'package:sanberapp66/controller/counter_controller.dart';
 import 'package:sanberapp66/firebase_options.dart';
 import 'package:sanberapp66/pages/auth/getstarted/get_started_page.dart';
+import 'package:sanberapp66/pages/cart/cart_page.dart';
 import 'package:sanberapp66/pages/navigation/page_dua.dart';
 import 'package:sanberapp66/pages/navigation/page_satu.dart';
 import 'package:sanberapp66/pages/profile/user_profile_page.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       navigatorKey: NavigationService.navigatorKey,
       theme: themeData,
-      home: UserProfilePage(),
+      home: CartPage(),
     );
   }
 }
