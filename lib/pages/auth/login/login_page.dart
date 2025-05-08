@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const UserProfilePage(),
+                            builder: (context) => UserProfilePage(),
                           ),
                           (route) => false);
                     }
