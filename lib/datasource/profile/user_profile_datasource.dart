@@ -9,9 +9,9 @@ class UserProfileDatasource {
 
   Future<List<UserProfileModel>> fetchDataUser() async {
     try {
-      log('salamon ${Endpoint.host}/${Endpoint.user}');
       final response = await dio.get('${Endpoint.host}/${Endpoint.user}',
           options: Options(headers: {'x-api-key': 'reqres-free-v1'}));
+
       if (response.statusCode == 200 || response.statusCode == 201) {
         final data = response.data['data'];
         List<UserProfileModel> users = List<UserProfileModel>.from(

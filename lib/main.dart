@@ -5,6 +5,7 @@ import 'package:sanberapp66/config/navigation/navigation_service.dart';
 import 'package:sanberapp66/config/theme/theme_data.dart';
 import 'package:sanberapp66/firebase_options.dart';
 import 'package:sanberapp66/pages/auth/getstarted/get_started_page.dart';
+import 'package:sanberapp66/pages/profile/user_profile_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       navigatorKey: NavigationService.navigatorKey,
       theme: themeData,
-      home: GetStartedPage(),
+      home: CounterPage(),
     );
   }
 }
