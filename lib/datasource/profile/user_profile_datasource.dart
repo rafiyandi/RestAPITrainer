@@ -5,8 +5,8 @@ import 'package:sanberapp66/config/provider/endpoint.dart';
 import 'package:sanberapp66/model/user_profile_model.dart';
 
 class UserProfileDatasource {
-  Dio dio = Dio();
-
+  final Dio dio;
+  UserProfileDatasource(this.dio);
   Future<List<UserProfileModel>> fetchDataUser() async {
     try {
       final response = await dio.get('${Endpoint.host}/${Endpoint.user}',

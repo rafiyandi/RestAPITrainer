@@ -7,10 +7,9 @@ import 'package:sanberapp66/datasource/auth/auth_local_datasource.dart';
 import 'package:sanberapp66/datasource/profile/user_profile_datasource.dart';
 import 'package:sanberapp66/model/user_profile_model.dart';
 
-class UserProfilePage extends StatelessWidget {
+class UserProfilePage extends GetView<UserProfileController> {
   @override
   Widget build(BuildContext context) {
-    var userC = Get.put(UserProfileController());
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -27,20 +26,20 @@ class UserProfilePage extends StatelessWidget {
         title: Text('User Page'),
       ),
       body: GetBuilder(
-        init: userC,
+        init: controller,
         builder: (_) => ListView.separated(
           separatorBuilder: (context, index) =>
               Padding(padding: EdgeInsets.all(20)),
-          itemCount: userC.users.length,
+          itemCount: controller.users.length,
           itemBuilder: (context, index) => ListTile(
             title: Text(
-                '${userC.users[index].firstName} ${userC.users[index].firstName}'),
+                '${controller.users[index].firstName} ${controller.users[index].firstName}'),
             leading: CustomBoxImageNetwork(
                 shape: BoxShape.circle,
                 height: 80,
                 width: 80,
-                urlImage: userC.users[index].avatar),
-            subtitle: Text(userC.users[index].email),
+                urlImage: controller.users[index].avatar),
+            subtitle: Text(controller.users[index].email),
           ),
         ),
       ),
